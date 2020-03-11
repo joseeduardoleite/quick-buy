@@ -10,8 +10,4 @@
     <None Remove="NewFolder\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Contratos\" />
-  </ItemGroup>
-
 </Project>
