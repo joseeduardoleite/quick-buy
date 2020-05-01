@@ -55,6 +55,8 @@ namespace QuickBuy.Repositorio.Config
                 .Property(p => p.FormaPagamentoId)
                 .IsRequired()
                 .HasMaxLength(50);
+
+            //builder.HasOne(p => p.Usuario);
         }
     }
 }
