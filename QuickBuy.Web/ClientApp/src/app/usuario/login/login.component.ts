@@ -23,10 +23,10 @@ export class LoginComponent implements OnInit {
     this.usuarioServico.verificarUsuario(this.usuario)
       .subscribe(
         data => {
-
+          console.log(data);
         },
         err => {
-
+          console.log(err.error);
         }
       );
   }
