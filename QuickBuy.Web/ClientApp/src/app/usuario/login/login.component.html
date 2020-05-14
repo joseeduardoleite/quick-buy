@@ -52,6 +52,10 @@
       Entrar
     </button>
 
+    <div class="alert alert-danger" *ngIf="mensagem">
+      {{mensagem}}
+    </div>
+
     <img [src]="img"
          title="Framework utilizado" />
 
