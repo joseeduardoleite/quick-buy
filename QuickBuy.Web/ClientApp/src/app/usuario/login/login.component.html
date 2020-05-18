@@ -47,7 +47,7 @@
       </div>
     </div>
 
-    <button class="btn-primary btn-primary btn-block" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+    <button class="btn-primary btn-primary btn-block mb-2" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
       Entrar
     </button>
@@ -56,7 +56,6 @@
     <div class="alert alert-danger mb-2" *ngIf="mensagem">
       {{mensagem}}
     </div>
-
     <img [src]="img"
          title="Framework utilizado" />
 
