@@ -22,10 +22,10 @@ export class CadastroUsuarioComponent implements OnInit {
   }
 
   public cadastrar() {
-    this.usuarioServico.cadastrarUsuario(this.usuario)
-      .subscribe(
-        usuarioJson => { },
-        e => {}
-      );
+    //this.usuarioServico.cadastrarUsuario(this.usuario)
+    //  .subscribe(
+    //    usuarioJson => { },
+    //    e => {}
+    //  );
   }
 }

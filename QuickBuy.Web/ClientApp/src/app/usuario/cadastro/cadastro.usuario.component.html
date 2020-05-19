@@ -58,7 +58,6 @@
            [(ngModel)]="usuario.nome"
            #nome="ngModel"
            required />
-
     <div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
       <div *ngIf="nome.errors.required">
         Preenchimento de nome obrigatório
@@ -67,26 +66,28 @@
 
     <label for="inputSobreNome" class="sr-only">Sobrenome</label>
     <input type="text" id="inputSobreNome"
-           name="sobrenome" placeholder="SobreNome"
+           name="sobreNome" placeholder="Sobrenome"
            class="form-control mb-2"
            [ngClass]="{
-            'is-invalid' : sobrenome.invalid && (sobrenome.dirty || sobrenome.touched),
-            'is-valid' : sobrenome.valid && (sobrenome.dirty || sobrenome.touched)
+            'is-invalid' : sobreNome.invalid && (sobreNome.dirty || sobreNome.touched),
+            'is-valid' : sobreNome.valid && (sobreNome.dirty || sobreNome.touched)
            }"
-           [(ngModel)]="usuario.nome"
-           #nome="ngModel"
+           [(ngModel)]="usuario.sobreNome"
+           #sobreNome="ngModel"
            required />
-
-    <div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
-      <div *ngIf="nome.errors.required">
-        Preenchimento de nome obrigatório
+    <div class="invalid-feedback mb-2" *ngIf="sobreNome.invalid && (sobreNome.dirty || sobreNome.touched)">
+      <div *ngIf="sobreNome.errors.required">
+        Preenchimento de sobrenome obrigatório
       </div>
     </div>
 
-    <button class="btn-primary btn-primary btn-block" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+    <button class="btn-primary btn-primary btn-block" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
-      Entrar
+      Cadastrar
     </button>
+    <div>
+      <a [routerLink]="['/entrar']">Voltar</a>
+    </div>
 
     <div class="alert alert-danger mb-2" *ngIf="mensagem">
       {{mensagem}}
