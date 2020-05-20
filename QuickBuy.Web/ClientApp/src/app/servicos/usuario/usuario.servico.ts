@@ -10,8 +10,6 @@ export class UsuarioServico {
 
   private baseURL: string;
   private _usuario: Usuario;
-    //headers: HttpHeaders | { [header: string]: string | string[]; };
- 
 
   set usuario(usuario: Usuario) {
     sessionStorage.setItem("usuario-autenticado", JSON.stringify(usuario));
