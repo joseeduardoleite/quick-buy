@@ -10,7 +10,8 @@ export class UsuarioServico {
 
   private baseURL: string;
   private _usuario: Usuario;
-    headers: HttpHeaders | { [header: string]: string | string[]; };
+    //headers: HttpHeaders | { [header: string]: string | string[]; };
+ 
 
   set usuario(usuario: Usuario) {
     sessionStorage.setItem("usuario-autenticado", JSON.stringify(usuario));
@@ -34,6 +35,10 @@ export class UsuarioServico {
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.baseURL = baseUrl;
+  }
+
+  get headers(): HttpHeaders {
+    return new HttpHeaders().set('content-type', 'application/json')
   }
 
   public verificarUsuario(usuario: Usuario): Observable<Usuario> {
