@@ -7,7 +7,7 @@
        [ngClass]=""
        [(ngModel)]="produto.nome"
        #nome="ngModel"
-       required/>
+       required />
 <div class="invalid-feedback mb-2" *ngIf="nome.invalid && (nome.dirty || nome.touched)">
   <div *ngIf="nome.errors.required">
     Preenchimento de nome do produto obrigatório
@@ -22,7 +22,7 @@
        [ngClass]=""
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
-       required/>
+       required />
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
   <div *ngIf="descricao.errors.required">
     Preenchimento de descrição obrigatório
@@ -37,7 +37,7 @@
        [ngClass]=""
        [(ngModel)]="produto.preco"
        #preco="ngModel"
-       required/>
+       required />
 <div class="invalid-feedback mb-2" *ngIf="preco.dirty || preco.touched">
   <div *ngIf="preco.errors.required">
     Preenchimento de preço obrigatório
@@ -46,8 +46,11 @@
 
 <div class="input-group mb-2">
   <div class="custom-file col-md-4">
-    <input type="file" class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)"/>
+    <input type="file" class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)" />
     <label for="inputFile" class="custom-file-label">Selecione uma foto</label>
   </div>
 </div>
-<button class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+<button class="btn btn-primary" (click)="cadastrar()" [disabled]="ativar_spinner">
+  <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+  Cadastrar
+</button>
