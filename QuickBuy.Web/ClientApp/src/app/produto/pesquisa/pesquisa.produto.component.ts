@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Produto } from "../../model/produto";
 import { ProdutoServico } from "../../servicos/produto/produto.servico";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "pesquisa-produto",
@@ -14,7 +15,7 @@ export class PesquisaProdutoComponent implements OnInit {
 
   }
 
-  constructor(private produtoServico: ProdutoServico) {
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
     this.produtoServico.obterTodosProdutos()
       .subscribe(
         produtos => {
@@ -24,5 +25,7 @@ export class PesquisaProdutoComponent implements OnInit {
           console.log(e.error);
         });
   }
-
+  public adicionarProduto() {
+    this.router.navigate(['/produto']);
+  }
 }
