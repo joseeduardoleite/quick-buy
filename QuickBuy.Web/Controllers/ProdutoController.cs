@@ -73,7 +73,6 @@ namespace QuickBuy.Web.Controllers
         }
 
         [HttpPost("EnviarArquivo")]
-        [Obsolete]
         public IActionResult EnviarArquivo()
         {
             try
