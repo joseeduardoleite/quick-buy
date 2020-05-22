@@ -1,4 +1,7 @@
-<div class="container">
+<meta charset="utf-8" />
+<div *ngIf="!produtos">Listando os produtos...</div>
+
+<div class="container" *ngIf="produtos">
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let p of produtos">
       <div class="card">
