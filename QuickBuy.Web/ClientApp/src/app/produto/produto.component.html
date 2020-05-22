@@ -4,7 +4,10 @@
        name="nomeProduto"
        placeholder="Nome do Produto"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+        'is-invalid' : nome.invalid && (nome.dirty || nome.touhced),
+        'is-invalid' : nome.valid && (nome.dirty || nome.touched)
+       }"
        [(ngModel)]="produto.nome"
        #nome="ngModel"
        required />
@@ -19,7 +22,10 @@
        name="descricaoProduto"
        placeholder="Descrição do produto"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+        'is-invalid' : descricao.invalid && (descricao.dirty || descricao.touhced),
+        'is-invalid' : descricao.valid && (descricao.dirty || descricao.touched)
+       }"
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
        required />
@@ -34,7 +40,10 @@
        name="precoProduto"
        placeholder="Preço"
        class="form-control mb-2 col-md-2"
-       [ngClass]=""
+       [ngClass]="{
+        'is-invalid' : preco.invalid && (preco.dirty || preco.touhced),
+        'is-invalid' : preco.valid && (preco.dirty || preco.touched)
+       }"
        [(ngModel)]="produto.preco"
        #preco="ngModel"
        required />
