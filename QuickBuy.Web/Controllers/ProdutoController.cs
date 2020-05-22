@@ -45,8 +45,11 @@ namespace QuickBuy.Web.Controllers
                 produto.Validate();
                 if (!produto.EhValido)
                     return BadRequest(produto.ObterMensagensValidacao());
+                if (produto.Id > 0)
+                    _produtoRepositorio.Atualizar(produto);
+                else
+                    _produtoRepositorio.Adicionar(produto);
 
-                _produtoRepositorio.Adicionar(produto);
                 return Created("api/produto", produto);
             }
             catch (Exception ex)
@@ -63,7 +66,7 @@ namespace QuickBuy.Web.Controllers
                 _produtoRepositorio.Remover(produto);
                 return Json(_produtoRepositorio.ObterTodos());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.ToString());
             }
