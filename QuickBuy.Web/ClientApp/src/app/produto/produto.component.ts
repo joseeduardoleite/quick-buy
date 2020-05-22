@@ -4,7 +4,7 @@ import { ProdutoServico } from "../servicos/produto/produto.servico";
 
 @Component({
   selector: "app-produto",
-  template: "./produto.component.html",
+  templateUrl: "./produto.component.html",
   styleUrls: ["./produto.component.css"]
 })
 export class ProdutoComponent implements OnInit {
@@ -33,6 +33,7 @@ export class ProdutoComponent implements OnInit {
         },
         e => {
           console.log(e.error);
+          this.ativar_spinner = false;
         });
   }
 
