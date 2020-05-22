@@ -10,8 +10,6 @@
 
         public override void Validate()
         {
-            //if (Id == 0)
-            //    AdicionarCritica("O Id não foi informado");
 
             if (string.IsNullOrEmpty(Nome))
                 AdicionarCritica("O Nome não foi informado");
