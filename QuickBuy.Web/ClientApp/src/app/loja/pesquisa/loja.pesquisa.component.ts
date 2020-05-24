@@ -28,7 +28,7 @@ export class LojaPesquisaComponent implements OnInit {
   }
 
   public abrirProduto(produto: Produto) {
-    sessionStorage.getItem('produtoDetalhe', JSON.stringify(produto));
+    sessionStorage.setItem('produtoDetalhe', JSON.stringify(produto));
     this.router.navigate(['/loja-produto']);
   }
 
