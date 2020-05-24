@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { LojaCarrinhoCompras } from "../carrinho-compras/loja.carrinho.compras";
 import { Produto } from "../../model/produto";
+import { Pedido } from "../../model/pedido";
 
 @Component({
   selector: "loja-efetivar",
@@ -45,6 +46,6 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public efetivarCompra() {
-    
+
   }
 }

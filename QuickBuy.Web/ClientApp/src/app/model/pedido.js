@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var Pedido = /** @class */ (function () {
     function Pedido() {
+        this.itensPedido = [];
     }
     return Pedido;
 }());
