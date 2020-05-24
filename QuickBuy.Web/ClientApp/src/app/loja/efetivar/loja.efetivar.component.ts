@@ -21,8 +21,18 @@ export class LojaEfetivarComponent implements OnInit {
     if (!produto.precoOriginal) {
       produto.precoOriginal = produto.preco;
     }
+    if (quantidade <= 0) {
+      quantidade = 1;
+      produto.quantidade = quantidade;
+    }
 
     produto.preco = produto.precoOriginal * quantidade;
+    this.carrinhoCompras.atualizar(this.produtos)
+  }
+
+  public remover(produto: Produto) {
+    this.carrinhoCompras.removerProduto(produto);
+    this.produtos = this.carrinhoCompras.obterProdutos();
   }
 
 }
