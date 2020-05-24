@@ -44,7 +44,7 @@ import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
       { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
       { path: 'loja-produto', component: LojaProdutoComponent },
-      { path: 'loja-efetivar', component: LojaEfetivarComponent }
+      { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [GuardaRotas] }
     ])
   ],
   providers: [UsuarioServico, ProdutoServico],
