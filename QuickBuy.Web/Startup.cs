@@ -18,7 +18,7 @@ namespace QuickBuy.Web
         public Startup(IConfiguration configuration)
         {
             var builder = new ConfigurationBuilder();
-            builder.AddJsonFile("config.json", optional:false, reloadOnChange:true);
+            builder.AddJsonFile("config.json", optional: false, reloadOnChange: true);
 
             Configuration = builder.Build();
         }
@@ -34,6 +34,7 @@ namespace QuickBuy.Web
 
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

@@ -4,6 +4,7 @@ import { Produto } from "../../model/produto";
 import { Pedido } from "../../model/pedido";
 import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
 import { ItemPedido } from "../../model/itemPedido";
+import { PedidoServico } from "../../servicos/pedido/pedido.servico";
 
 @Component({
   selector: "loja-efetivar",
@@ -23,7 +24,7 @@ export class LojaEfetivarComponent implements OnInit {
     this.atualizarTotal();
   }
 
-  constructor(private usuarioServico: UsuarioServico) {
+  constructor(private usuarioServico: UsuarioServico, private pedidoServico: PedidoServico) {
 
   }
 
@@ -53,8 +54,14 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public efetivarCompra() {
-    let pedido = this.criarPedido();
+    this.pedidoServico.efetivarCompra(this.criarPedido())
+      .subscribe(
+        pedidoId => {
 
+        },
+        e => {
+
+        });
   }
 
   public criarPedido(): Pedido {
