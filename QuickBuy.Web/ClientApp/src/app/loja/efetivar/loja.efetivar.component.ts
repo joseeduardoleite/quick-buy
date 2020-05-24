@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { LojaCarrinhoCompras } from "../carrinho-compras/loja.carrinho.compras";
 import { Produto } from "../../model/produto";
 import { Pedido } from "../../model/pedido";
+import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
+import { ItemPedido } from "../../model/itemPedido";
 
 @Component({
   selector: "loja-efetivar",
@@ -10,6 +12,7 @@ import { Pedido } from "../../model/pedido";
 })
 
 export class LojaEfetivarComponent implements OnInit {
+
   public carrinhoCompras: LojaCarrinhoCompras;
   public produtos: Produto[];
   public total: number;
@@ -18,6 +21,10 @@ export class LojaEfetivarComponent implements OnInit {
     this.carrinhoCompras = new LojaCarrinhoCompras();
     this.produtos = this.carrinhoCompras.obterProdutos();
     this.atualizarTotal();
+  }
+
+  constructor(private usuarioServico: UsuarioServico) {
+
   }
 
   public atualizarPreco(produto: Produto, quantidade: number) {
@@ -46,6 +53,34 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public efetivarCompra() {
+    let pedido = new Pedido();
 
+  }
+
+  public criarPedido(): Pedido {
+    let pedido = new Pedido();
+    pedido.usuarioId = this.usuarioServico.usuario.id;
+    pedido.cep = "12345-678";
+    pedido.cidade = "Campina Grande do Sul";
+    pedido.estado = "Parana";
+    pedido.dataPrevisaoEntrega = new Date();
+    pedido.formaPagamentoId = 1;
+    pedido.numeroEndereco = "776";
+
+    this.produtos = this.carrinhoCompras.obterProdutos();
+
+    for (let produto of this.produtos) {
+      let itemPedido = new ItemPedido();
+      itemPedido.produtoId = produto.id;
+
+      if (!produto.quantidade)
+        produto.quantidade = 1;
+
+      itemPedido.quantidade = produto.quantidade;
+
+      pedido.itensPedido.push(itemPedido);
+    }
+
+    return pedido;
   }
 }
