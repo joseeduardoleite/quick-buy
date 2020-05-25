@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,8 +27,11 @@ namespace QuickBuy.Web
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddControllersWithViews();
+
             var connectionString = Configuration.GetConnectionString("QuickBuyDB");
             services.AddDbContext<QuickBuyContexto>(option =>
                                                    option.UseLazyLoadingProxies()
