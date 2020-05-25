@@ -40,7 +40,7 @@ export class LojaEfetivarComponent implements OnInit {
 
     produto.preco = produto.precoOriginal * quantidade;
 
-    this.carrinhoCompras.atualizar(this.produtos)
+    this.carrinhoCompras.atualizar(this.produtos);
     this.atualizarTotal();
   }
 
@@ -71,7 +71,7 @@ export class LojaEfetivarComponent implements OnInit {
   public criarPedido(): Pedido {
     let pedido = new Pedido();
     pedido.usuarioId = this.usuarioServico.usuario.id;
-    pedido.cep = "12345-678";
+    pedido.cep = "12345678";
     pedido.cidade = "Campina Grande do Sul";
     pedido.estado = "Parana";
     pedido.dataPrevisaoEntrega = new Date();
