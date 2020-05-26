@@ -23,6 +23,7 @@ export class LojaEfetivarComponent implements OnInit {
     this.carrinhoCompras = new LojaCarrinhoCompras();
     this.produtos = this.carrinhoCompras.obterProdutos();
     this.atualizarTotal();
+    
   }
 
   constructor(private usuarioServico: UsuarioServico, private pedidoServico: PedidoServico, private router: Router) {

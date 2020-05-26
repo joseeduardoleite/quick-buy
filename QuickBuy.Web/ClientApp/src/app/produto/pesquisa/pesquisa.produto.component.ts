@@ -19,12 +19,13 @@ export class PesquisaProdutoComponent implements OnInit {
     this.produtoServico.obterTodosProdutos()
       .subscribe(
         produtos => {
-          this.produtos = produtos
+          this.produtos = produtos;
         },
         e => {
           console.log(e.error);
         });
   }
+
   public adicionarProduto() {
     sessionStorage.setItem('produtoSession', "");
     this.router.navigate(['/produto']);

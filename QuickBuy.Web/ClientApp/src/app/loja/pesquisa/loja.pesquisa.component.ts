@@ -23,7 +23,7 @@ export class LojaPesquisaComponent implements OnInit {
           this.produtos = produtos;
         },
         e => {
-          console.log(e.error);
+          //console.log(e.error);
         })
   }
 
