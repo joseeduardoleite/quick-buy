@@ -27,20 +27,20 @@ export class PesquisaProdutoComponent implements OnInit {
   }
   public adicionarProduto() {
     sessionStorage.setItem('produtoSession', "");
-    sessionStorage.setItem('produtoSession', "");
     this.router.navigate(['/produto']);
   }
 
   public deletarProduto(produto: Produto) {
     var retorno = confirm("Deseja deletar o produto?");
     if (retorno == true) {
-      this.produtoServico.deletar(produto).subscribe(
-        produtos => {
-          this.produtos = produtos;
-        },
-        e => {
-          console.log(e.errors);
-        });
+      this.produtoServico.deletar(produto)
+        .subscribe(
+          produtos => {
+            this.produtos = produtos;
+          },
+          e => {
+            console.log(e.errors);
+          });
     }
   }
 

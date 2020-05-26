@@ -30,6 +30,7 @@ export class LojaEfetivarComponent implements OnInit {
   }
 
   public atualizarPreco(produto: Produto, quantidade: number) {
+
     if (!produto.precoOriginal) {
       produto.precoOriginal = produto.preco;
     }
@@ -58,6 +59,7 @@ export class LojaEfetivarComponent implements OnInit {
     this.pedidoServico.efetivarCompra(this.criarPedido())
       .subscribe(
         pedidoId => {
+          console.log(pedidoId);
           sessionStorage.setItem("pedidoId", pedidoId.toString());
           this.produtos = [];
           this.carrinhoCompras.limparCarrinhoCompras();
@@ -72,12 +74,12 @@ export class LojaEfetivarComponent implements OnInit {
     let pedido = new Pedido();
     pedido.usuarioId = this.usuarioServico.usuario.id;
     pedido.cep = "12345678";
-    pedido.cidade = "Campina Grande do Sul";
-    pedido.estado = "Parana";
+    pedido.cidade = "cgs";
+    pedido.estado = "pr";
     pedido.dataPrevisaoEntrega = new Date();
     pedido.formaPagamentoId = 1;
-    pedido.numeroEndereco = "776";
-    pedido.enderecoCompleto= "endereco"
+    pedido.numeroEndereco = "1001";
+    pedido.enderecoCompleto = "endereco";
 
     this.produtos = this.carrinhoCompras.obterProdutos();
 

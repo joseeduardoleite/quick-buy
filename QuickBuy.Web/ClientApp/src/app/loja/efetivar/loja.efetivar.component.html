@@ -21,7 +21,7 @@
                      [(ngModel)]="p.quantidade" placeholder="1" />
             </td>
             <td style="width:20%">R$ {{p.preco | number:'1.0-2'}}</td>
-            <td style="width:10%"><button class="btn btn-secondary btn-sm" (click)="remover(p)">Remover</button></td>
+            <td style="width:10%"><button class="btn btn-danger btn-sm" (click)="remover(p)">Remover</button></td>
           </tr>
         </tbody>
       </table>
@@ -37,7 +37,7 @@
                 <td><strong>R$ {{total | number: '1.0-2'}}</strong></td>
               </tr>
             </table>
-            <button class="btn btn-danger" style="width:100%" (click)="efetivarCompra()">Efetivar compra</button>
+            <button class="btn btn-success" style="width:100%" (click)="efetivarCompra()">Efetivar compra</button>
           </div>
         </div>
       </div>
